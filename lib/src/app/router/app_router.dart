@@ -3,8 +3,9 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/domain/routing/service/routing_default_route_service.dart';
 import '../../core/domain/routing/service/routing_redirect_service.dart';
-import '../../features/startup/pages/routing.dart' as startup;
 import '../../features/auth/routing.dart' as auth;
+import '../../features/game/routing.dart' as game;
+import '../../features/startup/pages/routing.dart' as startup;
 
 GoRouter createRouter(
   GlobalKey<NavigatorState>? navigatorKey, {
@@ -20,6 +21,12 @@ GoRouter createRouter(
     },
   ));
   routes.addAll(auth.createRoutes(
+    redirect: (context, state) async {
+      final replacement = await redirectService.decideReplacement(state);
+      return replacement;
+    },
+  ));
+  routes.addAll(game.createRoutes(
     redirect: (context, state) async {
       final replacement = await redirectService.decideReplacement(state);
       return replacement;
@@ -55,7 +62,7 @@ extension _GoRouter on RoutingRedirectReplacementService {
 
     if (hasPath && hasReplacement) {
       // Store path where we wanted to go
-      storeReplacement(state.matchedLocation);
+      await storeReplacement(state.matchedLocation);
     }
 
     if (hasReplacement) {

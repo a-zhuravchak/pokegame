@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pokegame/src/core/domain/routing/routing.dart';
 
-import '../../../../core/data/pokeapi/data_source/pokemon_data_source.dart';
+import '../../../../core/domain/routing/routing.dart';
+import '../../../game/game.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -26,22 +26,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthSignIn>((event, emit) async {
       emit(AuthLoading(state));
       try {
-        // await FirebaseAuth.instance.signInWithEmailAndPassword(
-        //   email: event.email,
-        //   password: event.password,
-        // );
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: event.email,
+          password: event.password,
+        );
 
-        final ds = PokemonRemoteDataSource();
-        await ds.getPokemons();
-        // TODO: replace with route
-        emit(AuthPushRoute(state, DefaultAppRoute()));
+        emit(AuthPushRoute(state, GameInitialRoute()));
       } on FirebaseAuthException catch (err) {
         debugPrint(err.message);
         emit(AuthError(state, err));
       }
     });
 
-    on<AuthSwithchAuthMethod>((event, emit) {
+    on<AuthSwitchAuthMethod>((event, emit) {
       emit(state.copyWith(authMethod: state.authMethod.opposite));
     });
   }

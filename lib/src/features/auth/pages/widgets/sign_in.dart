@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../bloc/auth_bloc.dart';
 
 class SignInWidget extends StatelessWidget {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController(text: 'nastiazh@gmail.com');
+  final TextEditingController passwordController = TextEditingController(text: '123456789');
 
   SignInWidget({super.key});
 
@@ -22,13 +21,8 @@ class SignInWidget extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              // mainAxisSize: MainAxisSize.min,
+              mainAxisSize: MainAxisSize.min,
               children: [
-                // SvgPicture.network(
-                //   'https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/6.svg',
-                //   colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
-                // ),
-
                 TextField(
                   controller: emailController,
                   decoration: const InputDecoration(labelText: 'Email'),
@@ -53,7 +47,7 @@ class SignInWidget extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    context.read<AuthBloc>().add(AuthSwithchAuthMethod());
+                    context.read<AuthBloc>().add(AuthSwitchAuthMethod());
                   },
                   child: const Text('Create Account'),
                 ),

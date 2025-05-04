@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokegame/src/features/auth/pages/bloc/auth_bloc.dart';
+
+import '../bloc/auth_bloc.dart';
 
 class SignUpWidget extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
@@ -46,7 +47,7 @@ class SignUpWidget extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    context.read<AuthBloc>().add(AuthSwithchAuthMethod());
+                    context.read<AuthBloc>().add(AuthSwitchAuthMethod());
                   },
                   child: const Text('I already have an account'),
                 ),

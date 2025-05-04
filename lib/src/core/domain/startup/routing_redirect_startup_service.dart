@@ -1,14 +1,13 @@
-import 'package:pokegame/src/core/domain/startup/startup_service.dart';
-
 import '../../../features/startup/startup.dart';
 import '../routing/entity/app_route.dart';
 import '../routing/service/routing_redirect_service.dart';
 import 'entities/startup_result.dart';
+import 'startup_service.dart';
 
 class RoutingRedirectStartupService implements RoutingRedirectService {
-  RoutingRedirectStartupService({required this.startupService});
-
   final StartupService startupService;
+
+  RoutingRedirectStartupService({required this.startupService});
 
   @override
   Future<AppRoute?> getPendingRoute(String? path, dynamic extra) async {

@@ -1,18 +1,18 @@
-import 'package:pokegame/src/app/di/di.dart';
-import 'package:pokegame/src/app/router/app_router.dart';
-import 'package:pokegame/src/app/theme/util.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../core/presentation/widgets/overlay/styled_overlay.dart';
+import 'di/di.dart';
+import 'router/app_router.dart';
+import 'theme/util.dart';
 
 class GameApp extends StatefulWidget {
+  final GlobalKey<NavigatorState> navigatorKey;
+
   const GameApp({
     super.key,
     required this.navigatorKey,
   });
-
-  final GlobalKey<NavigatorState> navigatorKey;
 
   @override
   State<GameApp> createState() => _GameAppState();

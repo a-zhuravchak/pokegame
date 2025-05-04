@@ -1,4 +1,4 @@
-import 'package:pokegame/src/core/util/string_utils.dart';
+import '../../../util/string_utils.dart';
 
 abstract class AppRoute {
   String get routeName;

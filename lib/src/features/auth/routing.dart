@@ -1,10 +1,10 @@
 import 'package:go_router/go_router.dart';
-import 'package:pokegame/src/features/auth/pages/auth_page.dart';
 
 import 'auth.dart';
+import 'pages/auth_page.dart';
 
 List<RouteBase> createRoutes({required GoRouterRedirect redirect}) {
-  final List<RouteBase> external = [
+  final external = <RouteBase>[
     GoRoute(
         path: AuthInitialRoute().goRouterPath,
         redirect: redirect,
@@ -12,6 +12,7 @@ List<RouteBase> createRoutes({required GoRouterRedirect redirect}) {
           return const NoTransitionPage(child: AuthPage());
         }),
   ];
-  final List<RouteBase> internal = [];
+  final internal = <RouteBase>[];
+
   return external + internal;
 }

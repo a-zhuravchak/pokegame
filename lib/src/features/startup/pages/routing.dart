@@ -1,10 +1,10 @@
-import 'package:pokegame/src/features/startup/pages/splash/splash_page.dart';
 import 'package:go_router/go_router.dart';
 
 import '../startup.dart';
+import 'splash/splash_page.dart';
 
 List<RouteBase> createRoutes({required GoRouterRedirect redirect}) {
-  final List<RouteBase> external = [
+  final external = <RouteBase>[
     GoRoute(
         path: SplashStartupRoute().goRouterPath,
         redirect: redirect,
@@ -12,6 +12,7 @@ List<RouteBase> createRoutes({required GoRouterRedirect redirect}) {
           return const NoTransitionPage(child: SplashPage());
         }),
   ];
-  final List<RouteBase> internal = [];
+  final internal = <RouteBase>[];
+
   return external + internal;
 }

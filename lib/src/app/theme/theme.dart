@@ -31,13 +31,14 @@ class MaterialTheme {
       chipTheme: createChipTheme(colorScheme),
       inputDecorationTheme: createTextFieldTheme(colorScheme),
       segmentedButtonTheme: createSegmentedButtonTheme(colorScheme),
+      bottomSheetTheme: createBottomSheetTheme(),
     );
   }
 
   static ColorScheme lightScheme() {
     return const ColorScheme(
       brightness: Brightness.light,
-      primary: Color(0xff8f4a50),
+      primary: Color(0xffd73c4b),
       surfaceTint: Color(0xff8f4a50),
       onPrimary: Color(0xffffffff),
       primaryContainer: Color(0xffffdadb),
@@ -140,7 +141,7 @@ class MaterialTheme {
 AppBarTheme createAppBarTheme(ColorScheme colorScheme) {
   return AppBarTheme(
     titleTextStyle: TextStyle(
-      color: colorScheme.onPrimary,
+      color: colorScheme.tertiary,
       fontSize: 20,
       fontWeight: FontWeight.bold,
     ),
@@ -151,6 +152,14 @@ AppBarTheme createAppBarTheme(ColorScheme colorScheme) {
       color: colorScheme.onSurface,
     ),
     centerTitle: true,
+  );
+}
+
+BottomSheetThemeData createBottomSheetTheme() {
+  return BottomSheetThemeData(
+    backgroundColor: Colors.transparent,
+    elevation: 0,
+    modalBackgroundColor: Colors.transparent,
   );
 }
 

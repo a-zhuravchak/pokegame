@@ -1,11 +1,11 @@
 import 'package:get_it/get_it.dart';
-import 'package:pokegame/src/features/startup/startup.dart';
 
 import '../../core/data/routing/service/routing_default_route_service.dart';
 import '../../core/data/routing/service/routing_redirect_service.dart';
 import '../../core/domain/routing/service/routing_default_route_service.dart';
 import '../../core/domain/routing/service/routing_redirect_service.dart';
 import '../../core/domain/startup/routing_redirect_startup_service.dart';
+import '../../features/startup/startup.dart';
 
 void setup(GetIt getIt) {
   _setupRoutingService(getIt);

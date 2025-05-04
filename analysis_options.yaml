@@ -1,5 +1,8 @@
 include: package:flutter_lints/flutter.yaml
 
+formatter:
+  page_width: 100
+
 linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`
@@ -12,6 +15,8 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
+    directives_ordering: true
+    prefer_relative_imports: true
     sort_child_properties_last: true
     unawaited_futures: true
     # avoid_print: false  # Uncomment to disable the `avoid_print` rule

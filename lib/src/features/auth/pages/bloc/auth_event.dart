@@ -17,6 +17,6 @@ final class AuthSignUp extends AuthEvent {
   AuthSignUp({required this.email, required this.password});
 }
 
-final class AuthSwithchAuthMethod extends AuthEvent {
-  AuthSwithchAuthMethod();
+final class AuthSwitchAuthMethod extends AuthEvent {
+  AuthSwitchAuthMethod();
 }

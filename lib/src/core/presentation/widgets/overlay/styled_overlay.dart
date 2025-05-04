@@ -76,7 +76,7 @@ class StyledOverlay {
       completer: completer,
       type: type,
     );
-    completer.future.whenComplete(() {
+    await completer.future.whenComplete(() {
       _callback(OverlayStatus.show);
       if (duration != null) {
         _cancelTimer();

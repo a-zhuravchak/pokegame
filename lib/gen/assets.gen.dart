@@ -13,6 +13,20 @@ import 'package:flutter_svg/flutter_svg.dart' as _svg;
 import 'package:lottie/lottie.dart' as _lottie;
 import 'package:vector_graphics/vector_graphics.dart' as _vg;
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/Hand Drawn Zoom Effect Background.svg
+  SvgGenImage get handDrawnZoomEffectBackground =>
+      const SvgGenImage('assets/images/Hand Drawn Zoom Effect Background.svg');
+
+  /// File path: assets/images/pokeball.svg
+  SvgGenImage get pokeball => const SvgGenImage('assets/images/pokeball.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [handDrawnZoomEffectBackground, pokeball];
+}
+
 class $AssetsLottieGen {
   const $AssetsLottieGen();
 
@@ -54,6 +68,7 @@ class $AssetsNotificationGen {
 class Assets {
   const Assets._();
 
+  static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsLottieGen lottie = $AssetsLottieGen();
   static const $AssetsNotificationGen notification = $AssetsNotificationGen();
 }

@@ -7,7 +7,7 @@ Compete with others, track your score, and climb the daily leaderboard.
 ---
 
 ## 🎥 Gameplay Preview
-*(Click to watch the full demo of how PokéGuess works!)*
+*(Click to watch the full demo of how it works!)*
 https://youtube.com/shorts/axyraWmSrW4?feature=share
 
 ---

@@ -8,7 +8,7 @@ Compete with others, track your score, and climb the daily leaderboard.
 
 ## 🎥 Gameplay Preview
 *(Click to watch the full demo of how PokéGuess works!)*
-![Demo Video to GIF](https://github.com/user-attachments/assets/c70ee4d0-2dfb-4617-85eb-947d318c329a)
+[![Demo Video](https://github.com/user-attachments/assets/c70ee4d0-2dfb-4617-85eb-947d318c329a)](https://youtube.com/shorts/axyraWmSrW4?feature=share)
 
 ---
 

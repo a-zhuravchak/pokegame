@@ -6,9 +6,7 @@ sealed class RoundEvent {}
 final class LoadGame extends RoundEvent {}
 
 final class LoadRound extends RoundEvent {
-  final int roundNumber;
-
-  LoadRound(this.roundNumber);
+  LoadRound();
 }
 
 final class UserAnswered extends RoundEvent {

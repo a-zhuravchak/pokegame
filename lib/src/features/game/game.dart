@@ -5,6 +5,11 @@ sealed class GameRoute extends AppRoute {}
 
 final class GameInitialRoute extends GameRoute {
   @override
+  String get routeName => '/start';
+}
+
+final class GameProgressRoute extends GameRoute {
+  @override
   String get routeName => '/game';
 }
 

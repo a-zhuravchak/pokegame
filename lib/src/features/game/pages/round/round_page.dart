@@ -20,18 +20,15 @@ class RoundPage extends StatelessWidget {
             final route = state.route;
             await context.push(route.routeName, extra: route.arguments);
             if (context.mounted) {
-              context.read<RoundBloc>().add(LoadRound(state.roundNumber + 1));
+              context.read<RoundBloc>().add(LoadRound());
             }
           }
         },
         builder: (context, state) {
           final bloc = context.read<RoundBloc>();
           if (state is RoundFinalResultState) {
-            return Center(
-              child: Text(
-                '${state.result}/5',
-                style: TextStyle(fontSize: 44),
-              ),
+            return ResultWidget(
+              score: state.result,
             );
           } else if (state is! RoundReadyState) {
             return BackgroundWidget(
@@ -40,7 +37,6 @@ class RoundPage extends StatelessWidget {
               ),
             );
           } else {
-            final image = state.pokemon.gameImageUrl;
             return BackgroundWidget(
               child: SafeArea(
                 child: Scaffold(
@@ -51,12 +47,28 @@ class RoundPage extends StatelessWidget {
                       logo: true,
                       child: Center(
                         child: Image.network(
-                          image,
+                          state.pokemon.gameImageUrl,
                           color: Colors.black,
                           fit: BoxFit.fitHeight,
                           height: 250,
                           width: 250,
                           isAntiAlias: true,
+                          loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+                            // if (loadingProgress != null) {
+                            //   return Center(
+                            //     child: CircularProgressIndicator(
+                            //       value: loadingProgress.expectedTotalBytes != null
+                            //           ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
+                            //           : null,
+                            //     ),
+                            //   );
+                            // }
+                            return AnimatedOpacity(
+                              opacity: loadingProgress == null ? 1 : 0,
+                              duration: Duration(milliseconds: 200),
+                              child: child,
+                            );
+                          },
                         ),
                       ),
                     ),
@@ -105,8 +117,8 @@ class _AnswerBottomSheetState extends State<AnswerBottomSheet> {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: AnimatedSlide(
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeOut,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeIn,
         offset: _isVisible ? Offset.zero : const Offset(0, 1),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -124,6 +136,33 @@ class _AnswerBottomSheetState extends State<AnswerBottomSheet> {
                     ),
                   )
                   .toList(),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ResultWidget extends StatelessWidget {
+  const ResultWidget({super.key, required this.score});
+  final int score;
+
+  @override
+  Widget build(BuildContext context) {
+    return BackgroundWidget(
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Center(
+              child: PokeballContainer(
+                logo: true,
+                child: Center(
+                  child: Text('YOU GOT $score OUT OF 5 ${score == 5 ? '🔥' : '👍'}'),
+                ),
+              ),
             ),
           ),
         ),

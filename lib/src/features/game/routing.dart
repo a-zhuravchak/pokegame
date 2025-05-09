@@ -4,12 +4,24 @@ import 'package:go_router/go_router.dart';
 import 'game.dart';
 import 'pages/result/result_page.dart';
 import 'pages/round/round_page.dart';
+import 'pages/start/start_page.dart';
 
 List<RouteBase> createRoutes({required GoRouterRedirect redirect}) {
   final external = <RouteBase>[
     GoRoute(
       path: GameInitialRoute().goRouterPath,
       name: GameInitialRoute().routeName,
+      redirect: redirect,
+      pageBuilder: (context, state) {
+        return const NoTransitionPage(
+            child: StartGamePage(
+          key: ValueKey('start'),
+        ));
+      },
+    ),
+    GoRoute(
+      path: GameProgressRoute().goRouterPath,
+      name: GameProgressRoute().routeName,
       redirect: redirect,
       pageBuilder: (context, state) {
         return const NoTransitionPage(

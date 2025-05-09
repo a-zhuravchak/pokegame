@@ -4,7 +4,7 @@ part of 'auth_bloc.dart';
 sealed class AuthState {
   final AuthMethod authMethod;
 
-  const AuthState({this.authMethod = AuthMethod.signIn});
+  const AuthState({this.authMethod = AuthMethod.signUp});
 
   AuthState.fromState(AuthState state) : authMethod = state.authMethod;
 
@@ -22,7 +22,7 @@ sealed class AuthState {
 final class AuthIdle extends AuthState {
   const AuthIdle({required super.authMethod});
 
-  const AuthIdle._initial() : super(authMethod: AuthMethod.signIn);
+  const AuthIdle._initial() : super(authMethod: AuthMethod.signUp);
 }
 
 final class AuthLoading extends AuthState {

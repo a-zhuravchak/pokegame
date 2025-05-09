@@ -27,7 +27,8 @@ class PokeballContainer extends StatelessWidget {
   }
 
   Widget buildContainer(ThemeData theme) {
-    return Container(
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 200),
       width: width,
       height: height,
       padding: padding,

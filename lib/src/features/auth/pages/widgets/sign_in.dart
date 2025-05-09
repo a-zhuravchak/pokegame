@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/auth_bloc.dart';
 
 class SignInWidget extends StatelessWidget {
-  final TextEditingController emailController = TextEditingController(text: 'nastiazh@gmail.com');
-  final TextEditingController passwordController = TextEditingController(text: '123456789');
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   SignInWidget({super.key});
 

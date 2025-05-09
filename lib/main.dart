@@ -9,8 +9,8 @@ import 'src/app/game_app.dart';
 Future<void> main() async {
   GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   WidgetsFlutterBinding.ensureInitialized();
-  await setupDi(navigatorKey);
   await Firebase.initializeApp();
+  await setupDi(navigatorKey);
   await precacheImages();
   runApp(
     GameApp(navigatorKey: navigatorKey),

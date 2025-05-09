@@ -7,8 +7,8 @@ Compete with others, track your score, and climb the daily leaderboard.
 ---
 
 ## 🎥 Gameplay Preview
-![App Demo](demo.mp4)
 *(Click to watch the full demo of how PokéGuess works!)*
+![Demo Video to GIF](https://github.com/user-attachments/assets/c70ee4d0-2dfb-4617-85eb-947d318c329a)
 
 ---
 
@@ -44,15 +44,6 @@ Compete with others, track your score, and climb the daily leaderboard.
 - Score
 - Timestamp of score entry
 - Highest streak achieved
-
----
-
-## 🗓️ Why Daily Leaderboards?
-
-We wanted to build a game you can revisit every day.  
-Daily streaks and fresh scores keep the competition fair and ongoing.
-
----
 
 ## 🚀 Try It Yourself
 
